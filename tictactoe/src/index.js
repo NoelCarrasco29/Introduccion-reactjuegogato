@@ -55,6 +55,7 @@ function Square(props) {
           history: [{
             squares: Array(9).fill(null),
           }],
+          stepNumber: 0,
           xIsNext: true,
         };
       }
@@ -69,6 +70,12 @@ function Square(props) {
                 squares: squares,
               }]),
       xIsNext: !this.state.xIsNext,  
+        });
+      }
+      jumpTo(step) {
+        this.setState({
+          stepNumber: step,
+          xIsNext: (step % 2) === 0,
         });
       }
     render() {
