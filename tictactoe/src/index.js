@@ -60,7 +60,7 @@ function Square(props) {
         };
       }
       handleClick(i) {
-        const squares = this.state.squares.slice();
+        const history = this.state.history.slice(0, this.state.stepNumber + 1);
         if (calculateWinner(squares) || squares[i]) {
             return;
           }
@@ -69,6 +69,7 @@ function Square(props) {
             history: history.concat([{
                 squares: squares,
               }]),
+              stepNumber: history.length,
       xIsNext: !this.state.xIsNext,  
         });
       }
